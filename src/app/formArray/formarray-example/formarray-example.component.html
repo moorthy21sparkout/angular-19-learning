@@ -10,4 +10,15 @@
             Add Email
         </button>
     </div>
+    <div formArrayName="mobileList">
+        <div *ngFor="let mobile of mobileList.controls; let i=index">
+            <input [formControlName]="i">
+            <button type="button" (click)="removeMobileList(i)">
+                Remove
+            </button>
+        </div>
+        <button type="button" (click)="addMobile()">
+            Add Mobile
+        </button>
+    </div>
 </form>

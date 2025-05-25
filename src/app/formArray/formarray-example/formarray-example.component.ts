@@ -18,6 +18,9 @@ export class FormarrayExampleComponent implements OnInit {
     this.formArray = this.formBuilder.group({
       emailList: this.formBuilder.array([
         this.formBuilder.control('')
+      ]),
+      mobileList: this.formBuilder.array([
+        this.formBuilder.control('')
       ])
     })
   }
@@ -36,6 +39,11 @@ export class FormarrayExampleComponent implements OnInit {
     return this.formArray.get('emailList') as FormArray;
   }
 
+
+  get mobileList(){
+    return this.formArray.get('mobileList') as FormArray;
+  }
+
   
   /**
    * Add an email address to the email list.
@@ -46,6 +54,11 @@ export class FormarrayExampleComponent implements OnInit {
    */
 addEmail() {
   this.emailList.push(this.formBuilder.control(''));
+}
+
+
+addMobile(){
+  this.mobileList.push(this.formBuilder.control(''));
 }
 
 
@@ -61,5 +74,10 @@ addEmail() {
 
   removeEmail(index:number){
     this.emailList.removeAt(index);
+  }
+
+
+  removeMobileList(index:number){
+    this.mobileList.removeAt(index);
   }
 }
