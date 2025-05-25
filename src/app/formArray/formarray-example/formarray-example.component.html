@@ -1,0 +1,13 @@
+<form [formGroup]="formArray">
+    <div formArrayName="emailList">
+        <div *ngFor="let email of emailList.controls; let i=index">
+            <input [formControlName]="i">
+            <button type="button" (click)="removeEmail(i)">
+                Remove
+            </button>
+        </div>
+        <button type="button" (click)="addEmail()">
+            Add Email
+        </button>
+    </div>
+</form>
